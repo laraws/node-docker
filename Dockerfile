@@ -67,10 +67,11 @@ RUN set -ex \
   && yarn --version
 
 COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 RUN npm config set registry https://registry.npm.taobao.org
 
 RUN yarn config set registry https://registry.npm.taobao.org
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD [ "node" ]
